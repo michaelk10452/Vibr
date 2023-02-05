@@ -1,0 +1,23 @@
+{
+  "name": "vibr",
+  "version": "1.0.0",
+  "description": "user uploads picture and web app gives song recommendations to match the vibes in the picture",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelk10452/Vibr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelk10452/Vibr/issues"
+  },
+  "homepage": "https://github.com/michaelk10452/Vibr#readme",
+  "dependencies": {
+    "axios": "^1.3.2",
+    "vue": "^3.2.47"
+  }
+}
