@@ -15,7 +15,6 @@ import os
 # client_options = {'api_endpoint': 'eu-vision.googleapis.com'}
 # client = vision.ImageAnnotatorClient(client_options=client_options)
 
-global counter
 counter=0
 app = Flask(__name__)
 
@@ -30,7 +29,9 @@ def upload_file():
       image=request.files['file']
       img = Image.open(image)  # load with Pillow
       print(img.size)          # show image size (width, height)
-      img.save('staticFiles/uploads/image'+str(counter)+'.png')   # save it 
+      global counter
+      img.save('staticFiles/image'+str(counter)+'.png')   # save it
+      counter=counter+1 
       buffer=BytesIO()
       img.save(buffer,format="PNG")
       my_vision_image=buffer.getvalue()
