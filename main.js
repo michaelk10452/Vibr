@@ -15,7 +15,7 @@ const app = new Vue({
         }
         const formData = new FormData();
         formData.append('file', this.file);
-        const { data } = await axios.post('http://127.0.0.1:5000/upload', formData);
+        const { data } = await axios.post('https://vibr.herokuapp.com//upload', formData);
         console.log(typeof data);
         this.responseData = data;
         console.log(data)
