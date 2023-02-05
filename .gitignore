@@ -2,3 +2,5 @@
 Vibr-API.code-workspace
 node_modules/
 gcloudkey.py
+venv/
+__pycache__/
