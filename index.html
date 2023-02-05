@@ -109,7 +109,7 @@
     <button @click="submitFile">Submit</button>
     <div v-if="responseData" class="song-list">
         <div v-for="song in responseData" class="song-card">
-          <iframe :src="'https://open.spotify.com/embed/track/' + song[id] + '?utm_source=generator'" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          <iframe :src="'https://open.spotify.com/embed/track/' + song['id'] + '?utm_source=generator'" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         </div>
       </div>
   </div>
