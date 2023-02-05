@@ -6,18 +6,19 @@
   <style>
     @import url('https://fonts.googleapis.com/css?family=Gochi+Hand');
     body {
+        box-sizing: border-box;
+        width: 100%;
         background-color: #ffb7b0;
         min-height: 70vh;
-        padding: 0vh 30vw;
         color: hsl(198, 1%, 29%);
         font-family: 'Gochi Hand', cursive;
         text-align: center;
-        font-size: 1000%;  
+        font-size: 500%;  
     }
     #app {
-      width: 500px;
+      position: relative;
+      width: 100%;
       margin: 50px auto;
-      text-align: center;
     }
     h1 {
         line-height: 1.5;
@@ -52,37 +53,33 @@
       margin-top: 20px;
       padding: 10px 20px;
       font-size: 16px;
-      background-color: #3f51b5;
+      background-color: #76284F;
       color: white;
       border: none;
       border-radius: 5px;
       transition: background-color 0.2s ease;
     }
     button:hover {
-      background-color: #5c6bc0;
+      background-color: #28764F;
       cursor: pointer;
     }
     .song-list {
+      width: 100%;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       margin-top: 50px;
+     text-align: left;
     }
 
     .song-card {
-      width: 300px;
-      height: 500px;
-      margin: 20px;
-      background-color: white;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .song-card iframe {
-      border-radius: 12px;
-      width: 100%;
-      height: 400px;
+      position: inherit;
+    display: inline-block;
+    width: 32%;
+    height: 250px;
+    margin: 0;
+    padding: 0.5%;
+    vertical-align: top;
     }
     .response {
       margin-top: 50px;
@@ -91,6 +88,26 @@
     .animate-text {
   animation: writing-animation 2s forwards;
     }
+    .loading-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
 
     @keyframes writing-animation {
   0% {
@@ -99,376 +116,25 @@
   100% {
     width: 100%;
   }
+  
 }
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
   </style>
 </head>
 <body>
   <div id="app">
-    <h1>Vibr</h1>
+    <div style="position: relative; width:100%"><h1>Vibr</h1></div>
     <input type="file" ref="fileInput" @change="uploadFile"/>
-    <button @click="submitFile">Submit</button>
+    <button @click="submitFile">Vibe</button>
+  </div>
     <div v-if="responseData" class="song-list">
         <div v-for="song in responseData" class="song-card">
           <iframe :src="'https://open.spotify.com/embed/track/' + song['id'] + '?utm_source=generator'" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         </div>
-      </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="main.js"></script>
-</body>
-</html>
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Vibr</title>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Ollie+Rounded:wght@400;900&display=swap");
-
-    body {
-      background: linear-gradient(to right, #43cea2, #185a9d);
-      font-family: "Helvetica Neue", sans-serif;
-      color: white;
-    }
-    #app {
-      width: 500px;
-      margin: 50px auto;
-      text-align: center;
-    }
-    h1 {
-      margin-top: 50px;
-      font-size: 36px;
-      color: white;
-      animation: writing-out 1s linear forwards;
-      font-family: "Ollie Rounded", cursive;
-    }
-    @keyframes writing-out {
-      from {
-        width: 0;
-      }
-      to {
-        width: auto;
-      }
-    }
-    input[type="file"] {
-      margin: 20px 0;
-      padding: 10px;
-      font-size: 16px;
-      background-color: rgba(255,255,255,0.1);
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #3f51b5;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-    .response {
-      margin-top: 50px;
-      font-size: 24px;
-    }
-  </style>
-</head>
-<body>
-  <div id="app">
-    <h1>Vibr</h1>
-    <h2>Upload your file</h2>
-    <input type="file" ref="fileInput" @change="uploadFile"/>
-    <button @click="submitFile">Submit</button>
-    <div v-if="responseData" class="response">
-      <h2>Response Data:</h2>
-      <ul>
-        <li v-for="(song, index) in responseData">{{ index + 1 }}. {{ song }}</li>
-      </ul>
     </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="main.js"></script>
-</body>
-</html>
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Vibr</title>
-  <style>
-    body {
-      background: linear-gradient(to right, #43cea2, #185a9d);
-      font-family: "Helvetica Neue", sans-serif;
-      color: white;
-    }
-    #app {
-      width: 500px;
-      margin: 50px auto;
-      text-align: center;
-    }
-    h1 {
-      margin-top: 50px;
-      font-size: 36px;
-      color: white;
-    }
-    input[type="file"] {
-      margin: 20px 0;
-      padding: 10px;
-      font-size: 16px;
-      background-color: rgba(255,255,255,0.1);
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #3f51b5;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-    .response {
-      margin-top: 50px;
-      font-size: 24px;
-    }
-  </style>
-</head>
-<body>
-  <div id="app">
-    <h1>Upload your file</h1>
-    <input type="file" ref="fileInput" @change="uploadFile"/>
-    <button @click="submitFile">Submit</button>
-    <div v-if="responseData" class="response">
-      <h2>Response Data:</h2>
-      <ul>
-        <li v-for="(song, index) in responseData">{{ index + 1 }}. {{ song }}</li>
-      </ul>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="main.js"></script>
-</body>
-</html>
-
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Vibr</title>
-  <style>
-    body {
-      background-color: #fafafa;
-      font-family: "Helvetica Neue", sans-serif;
-    }
-
-    #app {
-      width: 500px;
-      margin: 50px auto;
-      text-align: center;
-      background-color: white;
-      padding: 50px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-    }
-
-    h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    input[type="file"] {
-      margin: 20px 0;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      transition: all 0.3s;
-    }
-
-    input[type="file"]:focus {
-      box-shadow: 0 0 10px #3f51b5;
-    }
-
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #3f51b5;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    button:hover {
-      background-color: #303f9f;
-    }
-
-    .song-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 50px;
-    }
-
-    .song-card {
-      width: 300px;
-      height: 500px;
-      margin: 20px;
-      background-color: white;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .song-card iframe {
-      border-radius: 12px;
-      width: 100%;
-      height: 400px;
-    }
-  </style>
-</head>
-<body>
-  <div id="app">
-    <h1>Upload your file</h1>
-    <input type="file" ref="fileInput" @change="uploadFile"/>
-    <button @click="submitFile">Submit</button>
-    <div v-if="responseData" class="song-list">
-      <div v-for="song in responseData" class="song-card">
-        <iframe :src="'https://open.spotify.com/embed/track/' + song.id + '?utm_source=generator'" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-      </div>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="main.js"></script>
-</body>
-</html> -->
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Vibr</title>
-  <style>
-    #app {
-      width: 500px;
-      margin: 50px auto;
-      text-align: center;
-    }
-    input[type="file"] {
-      margin: 20px 0;
-      padding: 10px;
-      font-size: 16px;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #3f51b5;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-    .response-data {
-      margin: 50px auto;
-      width: 80%;
-      text-align: center;
-    }
-    iframe {
-      border-radius: 12px;
-      margin: 20px;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-      transition: 0.3s;
-    }
-    iframe:hover {
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    }
-  </style>
-</head>
-<body>
-  <div id="app">
-    <h1>Upload your file</h1>
-    <input type="file" ref="fileInput" @change="uploadFile"/>
-    <button @click="submitFile">Submit</button>
-  </div>
-  <div class="response-data">
-    <h2>Spotify Songs:</h2>
-    <div v-for="song in responseData">
-      <iframe :src="`https://open.spotify.com/embed/track/${song.id}?utm_source=generator`" width="300" height="250" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="main.js"></script>
-</body>
-</html> -->
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Vue.js and Flask API</title>
-  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-</head>
-<body>
-  <div id="app">
-    <el-upload
-      ref="upload"
-      class="upload-demo"
-      action=""
-      :on-success="submitFile"
-      :auto-upload="false"
-      :before-upload="uploadFile"
-    >
-      <el-button slot="trigger" size="small" type="primary">Select file</el-button>
-    </el-upload>
-  </div>
-  <div>    
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5PX4uS1LqlWEPL69phPVQQ?utm_source=generator" width="50%" height="250" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6IRA4KOVbtiGiTdYoEThJN?utm_source=generator" width="50%" height="250" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/element-ui/lib/index.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="main.js"></script>
-</body>
-</html> -->
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Vue.js and Flask API</title>
-</head>
-<body>
-  <div id="app">
-    <input type="file" ref="fileInput" @change="uploadFile"/>
-    <button @click="submitFile">Submit</button>
-  </div>
-  <div>    
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5PX4uS1LqlWEPL69phPVQQ?utm_source=generator" width="50%" height="250" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6IRA4KOVbtiGiTdYoEThJN?utm_source=generator" width="50%" height="250" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
