@@ -39,7 +39,7 @@ def create_query(token, tags):
     json_result = json.loads(query_result.content)
     top_song_list = []
 
-    for i in range(0,3):
+    for i in range(min(3,len(json_result['tracks']['items']))):
         song_name = json_result['tracks']['items'][i]['name']
         song_url = json_result['tracks']['items'][i]['external_urls']
         song_id = json_result['tracks']['items'][i]['id']
@@ -57,4 +57,4 @@ def spotify_API_call(tags):
     token = get_token()
     song_dict = create_query(token, tags)
     return song_dict
-print(spotify_API_call('Beach,waves,sunny,cool,breezy'))
+# print(spotify_API_call('Beach,waves,sunny,cool,breezy'))

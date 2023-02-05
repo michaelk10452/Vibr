@@ -7,7 +7,8 @@ from google.cloud import vision
 from google.cloud.vision_v1 import types
 from io import BytesIO
 import os
-
+from spotifyAPI import spotify_API_call
+from vibr_google_vision_api import get_google_data
 # os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'vibr-376821-ff0cccac9e6a.json'
 
 
@@ -34,8 +35,11 @@ def upload_file():
       counter=counter+1 
       buffer=BytesIO()
       img.save(buffer,format="PNG")
-      my_vision_image=buffer.getvalue()
-      print(my_vision_image)
+      b64img = buffer.getvalue()
+      # print(get_google_data(b64img))
+      print(spotify_API_call(get_google_data(b64img)))
+      # my_vision_image=buffer.getvalue()
+      # print(my_vision_image)
       return 'file uploaded successfully'
 	
 if __name__ == '__main__':
