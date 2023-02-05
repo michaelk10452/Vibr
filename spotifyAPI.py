@@ -56,3 +56,5 @@ def create_query(token, tags):
 def spotify_API_call(tags):
     token = get_token()
     song_dict = create_query(token, tags)
+    return song_dict
+print(spotify_API_call('Beach,waves,sunny,cool,breezy'))
