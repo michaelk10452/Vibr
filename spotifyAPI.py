@@ -52,7 +52,7 @@ def create_query(token, tags):
     
     return top_song_list
 
-token = get_token()
-tag = ""
-song_dict = create_query(token, tag)
-print(song_dict)
+
+def spotify_API_call(tags):
+    token = get_token()
+    song_dict = create_query(token, tags)
