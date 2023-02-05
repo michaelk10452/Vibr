@@ -42,17 +42,11 @@ def upload_file():
       f = request.files['file']
       image=request.files['file']
       img = Image.open(image)  # load with Pillow
-      print(img.size)          # show image size (width, height)
-      global counter
-      img.save('staticFiles/image'+str(counter)+'.png')   # save it
-      counter=counter+1 
+      print(img.size)          # show image size (width, height) 
       buffer=BytesIO()
       img.save(buffer,format="PNG")
       b64img = buffer.getvalue()
-      # print(get_google_data(b64img))
       print(spotify_API_call(get_google_data(b64img)))
-      # my_vision_image=buffer.getvalue()
-      # print(my_vision_image)
       return json.dumps(spotify_API_call(get_google_data(b64img)))
 	
 if __name__ == '__main__':
