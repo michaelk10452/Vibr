@@ -7,8 +7,8 @@ import pprint
 
 load_dotenv()
 
-client_id = '5bb0c26ec84a4f24b515fcbad9650911'
-client_secret = '27ba3058d7ac421190413452e3fd9965'
+client_id = '3ab06508220b4fda9e5bd15729f6fb23'
+client_secret = 'c5403e26529749978b4b6119030832ba'
 
 def get_token():
     auth_string = client_id + ":" + client_secret
