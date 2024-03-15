@@ -9,7 +9,7 @@ from io import BytesIO
 
 def get_google_data(buffer):
     #JSON FILE
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'vibr-376821-ff0cccac9e6a.json'
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'vibr-417223-1e9518f49c43.json'
 
 
     # Instantiates a client
