@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "vibr-417223",
+  "private_key_id": "1e9518f49c437e5a605387c3a20749701edc54c9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCZCDCHXZMk4ZFS\nFLjRLRB8Nibt1XnZFTCHhfDYZzK9B9nIaS518f0rG0ebUi6HG8AAvfDcFtjpkA0H\nu97v8ph8vObNpHQkt0GG923HuwvMDPElLkG+dyGpb52F9mn9fuZSYVMu9MmD3PmV\nR4iGphxeb7PEqtdva0iUc9p+BseB/oaQnza3w+hR/hFQea9C7vTPrQUS24JtNTn0\nmu005jpPP4cwclDzMC5b82LQAUYIzm/5ndsuH9MY3GGskMeOivnzl8ioYZ3rxhhl\noOKtaZB4qr+siYE6Lg8iQ+i48mEUskvyFO9h9nvC6WCf9VMFMD/LG+sznFR1jeMU\nyod9Zc05AgMBAAECggEABUpm8RsfVfBVd5a/T/4EmqK9pE3T1Vk58QmEqtqggrAF\ni7v1Lv8zfzzFdD16XdHsCKqIa/d/Ps3r4WdRnQ6QTomyWgw0Nru+MHYX7caN8RtG\ncABiJf1U5Nh2w/WhsvGi8ViriU1NtTkbyNktA2i1RN+MQcGdSp0VKIq71E0UMy6F\nkZ6JHnOEN5mFMYSTzqxGRi3iOQuWyga2a5ai5/laIGYV/6ouPSLQomCn+tRvbS3h\nMtxK1RVpBxZxDDHBIs5DX0bBFA0VcpV4dXFLszG5J3yekaxVnUVGTOdClGjVlxo1\nUuV2Oe08SvWzvLqfPV3yNjWfTqMV9rV/NyLDS27v/QKBgQDPTNXiVPHBygjNQfIa\nLPzKWFHG8FzGo+reWMr4nWKuI+LvOaTz6A0Z11usMW63tkjMv5k6JgloVQlLvikM\nOmjaOi7pXP1n6O1/zx9WMhDiQqciQrDMGIZBbi/6qBm53odK14FK2O4UNlWE/5mu\namfBOw6OuUVdZGsCzqOAvEPXhQKBgQC8+6HtQjy00y4009Shg6WfjdnpfMO7ES2b\n1f6BszHYvwLzOqinUyj7Pl3hVH2uUB1dUS5wzNrjfdxkTPDqv4Kt6exZUGarKNjf\nqp4BXi0c6hWS0O4AVzIQLRR38nZpPtWQ+xPedCJzj2cfAKq8wb4ecyV0LQMlTT/s\nGCtT5vw7JQKBgA7M1oxlMil6yiwVZDqYMagkrBn++TC5bUBYqI0dd3klWMNpoyxC\nygSpSoM9uEDng8USfNcY9hz7zUEaH4Ye+XNzKfxBRlpP1/0DBaK6ylfNGG+qwUKh\nEZzESCqmK8gIajJetn1ohX7t7icjtI4uTKAQHlb0RU6Ip9c4d5XuWw2dAoGBALCx\naO2nP5El3g7ge+7jYohynWrUD0EpR4Zrp0DnJVTtCroVfziq5Sc7YZVbZQMEvt/Q\nFma68nE+7UAOPDaQBoPKsgOzy7p+P3+oS4El53IgXzldBRnmbNV5AKlBVnsCl7Wt\nOx+DX+7CBn2TJw/C6ZoYuM0NhOJsfrakxmX1EqHNAoGBAK00ueTxM+0kHp6Z9OtZ\nuuO2R+W4PABdA/kHfDgdqCVkBghFK9+xv8lEgsSKc5uphqlUDgbhaFHSkJgrKfe8\nhPJNBBRhY9wDlIy3wIfkdHCHKqxBUobKtvhb3z0zlG5mOZf8R31KY7rZA9TopktK\ne0JaKqUexWavL5N+9SA3MS3U\n-----END PRIVATE KEY-----\n",
+  "client_email": "vibr-creds@vibr-417223.iam.gserviceaccount.com",
+  "client_id": "114992005269383261960",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vibr-creds%40vibr-417223.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
